@@ -3,8 +3,7 @@ import { View,
          Text,
          Dimensions,
          TouchableOpacity,
-         Image,
-         AsyncStorage } from 'react-native';
+         Image} from 'react-native';
 import RNRestart from 'react-native-restart';
 
 import { Actions } from 'react-native-router-flux';
@@ -47,6 +46,7 @@ class LeftMenu extends Component {
 
                     {this.renderSection('Casino', () => Actions.casinoScreen())}
                     {this.renderSection('Sports', () => Actions.sportsScreen())}
+                    {this.renderSection('Shop', () => Actions.shopScreen())}
                     {this.renderSection('About Comeon', () => Actions.aboutScreen())}
 
                 </View>
@@ -57,20 +57,10 @@ class LeftMenu extends Component {
 }
 
 const styles = {
-    header:{
-        paddingVertical:25,
-        paddingHorizontal: 65,
-        flexDirection: 'row',
-        marginVertical: 5,
-    },
-    footer: {
-        paddingVertical: 30,
-        alignItems: 'center',
-        flexDirection: 'column',
-    },
     txt:{
         flex:1,
         paddingHorizontal: 20,
+        marginTop: 15,
         width: 108,
         height: 30,
         fontFamily: "Gibson",
@@ -83,17 +73,16 @@ const styles = {
     },
     container:{
         alignItems: 'center',
-        justifyContent: 'center',
         height:height,
         opacity: 0.98,
-        backgroundColor: "#1d1b1a"
+        backgroundColor: "#1d1b1a",
     },
     element:{
         alignItems: 'center',
         flexDirection: 'column',
     },
     section: {
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         flexDirection: 'row',
         marginVertical: 5,
         alignItems: 'center',

@@ -6,6 +6,7 @@ import { Scene, Router, Drawer } from
 
 import Casino from './components/Casino';
 import Sports from './components/Sports';
+import Shop from './components/Shop';
 import About from './components/About';
 import LeftMenu from './components/LeftMenu';
 
@@ -25,22 +26,29 @@ export default class Root extends Component {
                 drawerWidth={(width / 2 + 100)}
             >
                 <Scene
-                    navigationBarStyle={{ height: 85 }}
-                    sceneStyle={{ marginTop: 85 }}
+                    navigationBarStyle={{ height: 50 }}
+                    sceneStyle={{ marginTop: 50 }}
                     key="casinoScreen" component={Casino}
                  />
                 <Scene
-                    navigationBarStyle={{ height: 85 }}
+                    navigationBarStyle={{ height: 50 }}
                     sceneStyle={{ marginTop: 85 }}
                     key="sportsScreen" component={Sports}
+                    initial
                  />
                 <Scene
-                    navigationBarStyle={{ height: 85 }}
+                    navigationBarStyle={{ height: 50 }}
+                    sceneStyle={{ marginTop: 85 }}
+                    key="shopScreen" component={Shop}
+                />
+                <Scene
+                    navigationBarStyle={{ height: 50 }}
                     sceneStyle={{ marginTop: 85 }}
                     key="aboutScreen" component={About}
                 />
 
             </Drawer>
+
             <Scene
             key='aboutScreen'
             component={About}
@@ -59,7 +67,11 @@ export default class Root extends Component {
             hideNavBar
             />
 
-
+            <Scene
+            key='shopScreen'
+            component={Shop}
+            hideNavBar
+            />
 
          </Scene>
       </Router>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from
 'react-native';
+import firebase from 'firebase';
 import Root from './src/Root';
 
 type Props = {};
@@ -13,6 +14,8 @@ export default class App extends Component<Props> {
         </View>
       );
   }
+
+
 }
 
 const styles = StyleSheet.create({

@@ -3,7 +3,9 @@ import { View, Text, Dimensions } from 'react-native';
 import { Scene, Router, Drawer } from
 'react-native-router-flux';
 
+import firebase from 'firebase';
 
+import Login from './components/Login';
 import Casino from './components/Casino';
 import Sports from './components/Sports';
 import Shop from './components/Shop';
@@ -25,6 +27,7 @@ export default class Root extends Component {
                 drawerImage={require('./img/menu-icon.jpg')}
                 drawerWidth={(width / 2 + 100)}
             >
+
                 <Scene
                     navigationBarStyle={{ height: 50 }}
                     sceneStyle={{ marginTop: 50 }}
@@ -34,7 +37,7 @@ export default class Root extends Component {
                     navigationBarStyle={{ height: 50 }}
                     sceneStyle={{ marginTop: 85 }}
                     key="sportsScreen" component={Sports}
-                    initial
+
                  />
                 <Scene
                     navigationBarStyle={{ height: 50 }}
@@ -45,9 +48,16 @@ export default class Root extends Component {
                     navigationBarStyle={{ height: 50 }}
                     sceneStyle={{ marginTop: 85 }}
                     key="aboutScreen" component={About}
+                    initial
                 />
 
             </Drawer>
+
+            <Scene
+            key='loginScreen'
+            component={Login}
+            hideNavBar
+            />
 
             <Scene
             key='aboutScreen'

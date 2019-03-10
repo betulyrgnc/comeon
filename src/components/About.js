@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -7,21 +6,10 @@ import { Actions } from 'react-native-router-flux';
 
 class About extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      count: 0 ,
-    }
-      console.log("count");
-  }
-
   clickLogin = () => {
-        //Actions.casinoScreen()
-        const { count } = this.state
-        this.setState({ count: ++this.state.count });
-        console.log(this.state.count)
-
+    Actions.loginScreen()
   }
+
   back = () => {
     Actions.casinoScreen()
   }
@@ -30,6 +18,7 @@ class About extends Component {
 
       <View>
         <Text style={{ textAlign: 'center', color: '#000'}}>About Page</Text>
+        
           <TouchableOpacity
           style={styles.section}
           onPress={this.clickLogin}
@@ -37,15 +26,13 @@ class About extends Component {
               <Text style={styles.txt}>Log in</Text>
           </TouchableOpacity>
 
-          <Text style={[styles.countText]}>
-           { this.state.count !== 0 ? this.state.count: null}
-          </Text>
 
           <TouchableOpacity
           onPress={this.back}
           >
               <Text style={styles.backstyle}>Back</Text>
           </TouchableOpacity>
+
       </View>
 
     );
@@ -64,11 +51,6 @@ const styles = {
         textAlign: "left",
         marginLeft: 10,
         marginTop: 0,
-    },
-    countText: {
-        color: '#FF00FF',
-        fontSize: 20,
-        textAlign: 'center',
     },
   }
 

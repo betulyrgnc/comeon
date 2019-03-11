@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 class Sports extends Component {
 
+  async componentWillMount() {
+    await AsyncStorage.setItem('lastPage', 'sportsScreen');
+  }
     clickLogin = () => {
       Actions.loginScreen()
     }
-    
+
   render(){
     return(
       <View>

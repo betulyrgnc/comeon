@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 class Casino extends Component {
+
+  async componentWillMount() {
+    await AsyncStorage.setItem('lastPage', 'casinoScreen');
+  }
 
   clickLogin = () => {
     Actions.loginScreen()

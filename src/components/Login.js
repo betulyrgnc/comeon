@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, Alert, View, Text, TouchableOpacity, Dimensions  } from 'react-native';
+import { TextInput, Alert, View, Text, TouchableOpacity, Dimensions, AsyncStorage } from 'react-native';
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 
@@ -13,6 +13,12 @@ class Login extends Component {
       count: 0 ,
     }
   }
+
+  /*
+  Giriş için:
+  email = test@test.com
+  password = 654321
+  */
 
   state = { email: '', password: ''};
 
@@ -41,9 +47,16 @@ class Login extends Component {
     }
   }
 
-loginSucces() {
+async loginSucces() {
   console.log('başarılı');
-  Actions.casinoScreen()
+  const lastPage = await AsyncStorage.getItem('lastPage')
+  if(lastPage === 'sportsScreen') {
+    Actions.sportsScreen()
+  } else if (lastPage === 'casinoScreen') {
+    Actions.casinoScreen()
+  } else {
+    Actions.shopScreen()
+  }
 }
 
 loginFail() {

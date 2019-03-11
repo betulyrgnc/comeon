@@ -50,7 +50,6 @@ export default class Root extends Component {
                     key="aboutScreen" component={About}
                     initial
                 />
-
             </Drawer>
 
             <Scene

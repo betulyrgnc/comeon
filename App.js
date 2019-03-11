@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from
 'react-native';
-import firebase from 'firebase';
+import firebase from '@firebase/app';
+import '@firebase/auth';
 import Root from './src/Root';
 
 type Props = {};

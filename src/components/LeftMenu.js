@@ -3,8 +3,10 @@ import { View,
          Text,
          Dimensions,
          TouchableOpacity,
+         AsyncStorage,
          Image} from 'react-native';
-import RNRestart from 'react-native-restart';
+import firebase from 'firebase';
+
 
 import { Actions } from 'react-native-router-flux';
 
@@ -12,33 +14,23 @@ const { height } = Dimensions.get('window');
 
 class LeftMenu extends Component {
 
-/*    state = {
-        user: {}
+   logOut() {
+    firebase.auth().signOut().then(() =>{
+       Actions.loginScreen();
+      });
     }
 
-    componentWillMount() {
-        retrieveUser((body) => {
-            this.setState({
-                user: body
-            });
-        });
-    }
-    logOut = () => {
-        AsyncStorage.clear();
-        RNRestart.Restart();
-    }
-*/
     renderSection(text, onPress) {
         return(
             <TouchableOpacity
             style={styles.section}
             onPress={onPress}
             >
-
                 <Text style={styles.txt}>{text}</Text>
             </TouchableOpacity>
         );
     }
+
     render() {
         return (
             <View style={styles.container}>
@@ -48,7 +40,7 @@ class LeftMenu extends Component {
                     {this.renderSection('Sports', () => Actions.sportsScreen())}
                     {this.renderSection('Shop', () => Actions.shopScreen())}
                     {this.renderSection('About Comeon', () => Actions.aboutScreen())}
-
+                    {this.renderSection('Log Out', () => { this.logOut()})}
                 </View>
             </View>
         );

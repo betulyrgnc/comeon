@@ -30,10 +30,10 @@ class Login extends Component {
 
   if (this.state.email === '' || this.state.password === '') {
     Alert.alert(
-      'Mesaj', // Başlık kısmı
-      'Her iki alanda dolu olmalı!', //İçerik
+      'Mesaj',
+      'Her iki alanda dolu olmalı!',
       [
-        { text: 'Tamam', onPress: () => null } //Buton için
+        { text: 'Tamam', onPress: () => null } 
       ]
     );
   } else {
@@ -46,7 +46,7 @@ class Login extends Component {
       });
     }
   }
-
+// for Restart
 async loginSucces() {
   console.log('başarılı');
   const lastPage = await AsyncStorage.getItem('lastPage')
@@ -63,10 +63,10 @@ loginFail() {
   console.log('Hatalı');
 
   Alert.alert(
-    'Mesaj', // Başlık kısmı
-    'Kullanıcı adı veya şifreniz hatalı!', //İçerik
+    'Mesaj',
+    'Kullanıcı adı veya şifreniz hatalı!',
     [
-      { text: 'Tamam', onPress: () => null } //Buton için
+      { text: 'Tamam', onPress: () => null }
     ]
   );
 }

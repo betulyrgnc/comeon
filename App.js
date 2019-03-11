@@ -9,14 +9,13 @@ type Props = {};
 
 export default class App extends Component<Props> {
   render() {
+
     return (
         <View style={styles.container}>
           <Root />
         </View>
       );
   }
-
-
 }
 
 const styles = StyleSheet.create({
